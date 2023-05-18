@@ -30,7 +30,7 @@ public class Etudiant implements Serializable {
     @ManyToMany()
     Set<Equipe> equipes;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.PERSIST)
     Departement departement;
 
 

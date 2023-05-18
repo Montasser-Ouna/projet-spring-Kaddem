@@ -1,5 +1,6 @@
 package com.example.projetkaddem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -19,6 +20,8 @@ public class Departement {
     Integer idDepartement;
     String nomDepartement;
 
+
+    @JsonIgnore
     @OneToMany(mappedBy = "departement",cascade = CascadeType.REMOVE)
     Set<Etudiant> etudiants;
 

@@ -2,6 +2,7 @@ package com.example.projetkaddem.Controllers;
 
 import com.example.projetkaddem.entities.Etudiant;
 import com.example.projetkaddem.repositories.EtudiantRepository;
+import com.example.projetkaddem.services.IEtudiantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,32 +12,37 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/etudiant")
 public class EtudiantController {
-    private final EtudiantRepository etudiantRepository;
+    private final IEtudiantService iEtudiantService;
 
     @PostMapping("/add")
     Etudiant addEtudiant(@RequestBody Etudiant etudiant) {
-        return etudiantRepository.save(etudiant);
+        return iEtudiantService.addEtudiant(etudiant);
 
     }
 
     @PutMapping("/update")
     Etudiant updateEtudiant(@RequestBody Etudiant etudiant) {
-        return etudiantRepository.save(etudiant);
+        return iEtudiantService.updateEtudiant(etudiant);
     }
 
  @GetMapping("/get/{id}")
     Etudiant getEtudiant(@PathVariable("id") Integer idEtudiant) {
-        return etudiantRepository.findById(idEtudiant).orElse(null);
+        return iEtudiantService.retriveEtudiant(idEtudiant);
     }
 
     @GetMapping("/all")
     List<Etudiant> getAllEtudiants() {
-        return etudiantRepository.findAll();
+        return iEtudiantService.retriveAllEtudiants();
     }
 
     @DeleteMapping("/delete/{id}")
     void deleteEtudiant(@PathVariable("id") Integer idEtudiant) {
-        etudiantRepository.deleteById(idEtudiant);
+        iEtudiantService.deleteEtudiant(idEtudiant);
+    }
+
+    @PutMapping("/assignerEtudiantDepartement/{idEtudiant}/{idDepartement}")
+    public Etudiant assignerEtudiantDepartement(@PathVariable("idEtudiant") Integer idEtudiant, @PathVariable("idDepartement") Integer idDepartement) {
+        return iEtudiantService.assignerEtudiantDepartement(idEtudiant, idDepartement);
     }
 }
 
