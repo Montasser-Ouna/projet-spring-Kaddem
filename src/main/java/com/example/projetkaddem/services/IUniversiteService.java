@@ -11,4 +11,7 @@ public interface IUniversiteService {
     Universite retriveUniversite(Integer idUniv);
     void deleteUniversite(Long id);
 
+   // void assignUniversiteToDepartement(Long idUniv, Long idDepartement);
+
+    void assignUniversiteToDepartement(Integer idUniv, Integer idDepartement);
 }
