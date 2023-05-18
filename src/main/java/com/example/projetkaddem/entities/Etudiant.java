@@ -23,12 +23,11 @@ public class Etudiant implements Serializable {
     String  prenomE;
     String nomE;
    Option Option;
-   @JsonIgnore
+
    @OneToMany(mappedBy = "etudiant")
     Set<Contrat> contrats;
 
     @ManyToMany()
-    @JsonIgnore
     Set<Equipe> equipes;
 
     @ManyToOne()

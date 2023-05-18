@@ -20,7 +20,7 @@ public class Departement {
     String nomDepartement;
 
     @OneToMany(mappedBy = "departement",cascade = CascadeType.REMOVE)
-    Set<Etudiant> etudiant;
+    Set<Etudiant> etudiants;
 
 
 

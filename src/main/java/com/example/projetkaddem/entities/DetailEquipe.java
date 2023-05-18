@@ -1,12 +1,11 @@
 package com.example.projetkaddem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
-
 @Getter
 @Setter
 @ToString
@@ -14,14 +13,14 @@ import java.util.Set;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-public class Equipe implements Serializable {
+public class DetailEquipe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer idEquipe;
-    String nomEquipe;
-    Niveau niveau;
-    @ManyToMany(mappedBy = "equipes")
-    Set<Etudiant> etudiants;
-    @OneToOne(cascade = CascadeType.REMOVE)
-    DetailEquipe detailsEquipe;
+    Integer idDetailEquipe;
+    Integer salle;
+    String thematique;
+    @OneToOne()
+    Equipe equipe;
+
+
 }

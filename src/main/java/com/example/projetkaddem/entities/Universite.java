@@ -18,7 +18,7 @@ public class Universite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idUniv;
     String nomUniv;
-    @OneToMany(cascade = {CascadeType.REMOVE,CascadeType.PERSIST})
+    @OneToMany(cascade = {CascadeType.REMOVE,CascadeType.PERSIST}   )
     Set<Departement> departements;
 }
 
