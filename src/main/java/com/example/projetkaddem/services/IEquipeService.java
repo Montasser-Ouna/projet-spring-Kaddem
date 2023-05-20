@@ -9,5 +9,5 @@ public interface IEquipeService {
     Equipe addEquipe(Equipe equipe);
     Equipe updateEquipe(Equipe equipe);
     Equipe getEquipe(Integer idEquipe);
-    void deleteEquipe(Long id);
+    void deleteEquipe(Integer idEquipe);
 }

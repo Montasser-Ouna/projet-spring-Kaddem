@@ -19,9 +19,10 @@ public class Equipe implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idEquipe;
     String nomEquipe;
+   @Enumerated(EnumType.STRING)
     Niveau niveau;
-    @ManyToMany(mappedBy = "equipes")
+    @ManyToMany(mappedBy = "equipes",cascade = CascadeType.REMOVE)
     Set<Etudiant> etudiants;
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(mappedBy ="equipe",cascade = CascadeType.REMOVE)
     DetailEquipe detailsEquipe;
 }

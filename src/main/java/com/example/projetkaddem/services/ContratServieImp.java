@@ -1,9 +1,12 @@
 package com.example.projetkaddem.services;
 
 import com.example.projetkaddem.entities.Contrat;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class ContratServieImp implements IContratService{
     @Override
     public List<Contrat> getAllContrats() {

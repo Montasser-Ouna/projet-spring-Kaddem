@@ -44,5 +44,10 @@ public class EtudiantController {
     public Etudiant assignerEtudiantDepartement(@PathVariable("idEtudiant") Integer idEtudiant, @PathVariable("idDepartement") Integer idDepartement) {
         return iEtudiantService.assignerEtudiantDepartement(idEtudiant, idDepartement);
     }
+
+    @PutMapping("/addAndAssignEtudiantToContratAndEquipe/{idContrat}/{idEquipe}")
+    public Etudiant addAndAssignEtudiantToContratAndEquipe(@RequestBody Etudiant etudiant,@PathVariable("idContrat") Integer idContrat, @PathVariable("idEquipe") Integer idEquipe) {
+        return iEtudiantService.addAndAssignEtudiantToContratAndEquipe(etudiant, idContrat, idEquipe);
+    }
 }
 

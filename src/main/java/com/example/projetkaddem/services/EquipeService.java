@@ -1,9 +1,12 @@
 package com.example.projetkaddem.services;
 
 import com.example.projetkaddem.entities.Equipe;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@RequiredArgsConstructor
 public class EquipeService implements IEquipeService{
     @Override
     public List<Equipe> getAllEquipes() {
@@ -26,7 +29,9 @@ public class EquipeService implements IEquipeService{
     }
 
     @Override
-    public void deleteEquipe(Long id) {
+    public void deleteEquipe(Integer idEquipe) {
 
     }
+
+
 }
