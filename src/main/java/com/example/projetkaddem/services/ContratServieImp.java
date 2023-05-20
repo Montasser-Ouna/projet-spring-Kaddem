@@ -7,6 +7,7 @@ import com.example.projetkaddem.repositories.EtudiantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -46,6 +47,13 @@ public class ContratServieImp implements IContratService{
            contratRepository.save(ce);
        }
         return ce;
+    }
+
+
+    @Override
+    public Integer nbContratsValides(Date dateDebutContrat, Date datefinContrat) {
+        return contratRepository.countByArchiveIsFalseAndDateDebutContratBetween(dateDebutContrat, datefinContrat);
+
     }
 
 }
