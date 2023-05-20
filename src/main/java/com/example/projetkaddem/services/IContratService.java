@@ -10,4 +10,6 @@ public interface IContratService {
     Contrat updateContrat(Contrat contrat);
     Contrat getContrat(Integer idContrat);
     void deleteContrat(Long id);
+
+    Contrat assignContratToEtudiant(Contrat ce, String nomE , String prenomE);
 }
