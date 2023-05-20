@@ -2,6 +2,7 @@ package com.example.projetkaddem.services;
 
 import com.example.projetkaddem.entities.Etudiant;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 public interface IEtudiantService {
@@ -16,4 +17,7 @@ public interface IEtudiantService {
     Etudiant assignerEtudiantDepartement(Integer idEtudiant, Integer idDepartement);
 
     Etudiant addAndAssignEtudiantToContratAndEquipe(Etudiant etudiant, Integer idContrat, Integer idEquipe);
+
+    @Transactional
+    Etudiant addAndAssignEtudiantToContratAndEquipeandDep(Etudiant etudiant, Integer idContrat, Integer idEquipe);
 }

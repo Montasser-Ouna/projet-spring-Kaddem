@@ -76,4 +76,25 @@ public class EtudiantServiceImp implements IEtudiantService{
         etudiant.setEquipes(equipes);
         return etudiant;
     }
+
+    @Override
+    @Transactional
+    public Etudiant addAndAssignEtudiantToContratAndEquipeandDep(Etudiant etudiant,Integer idContrat, Integer idEquipe)
+    {
+        Departement departement = departementRepository.findById(etudiant.getDepartement().getIdDepartement()).orElse(null);
+        etudiant.setDepartement(departement);
+
+        etudiantRepository.save(etudiant);
+        Contrat contrat = contratRepository.findById(idContrat).orElse(null);
+        Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
+        //affectation avec contrat
+        contrat.setEtudiant(etudiant);
+        contratRepository.save(contrat);
+
+        //affectation avec equipe
+        Set<Equipe> equipes = new HashSet<>();
+        equipes.add(equipe);
+        etudiant.setEquipes(equipes);
+        return etudiant;
+    }
 }
