@@ -20,4 +20,6 @@ public interface IEtudiantService {
 
     @Transactional
     Etudiant addAndAssignEtudiantToContratAndEquipeandDep(Etudiant etudiant, Integer idContrat, Integer idEquipe);
+
+    List<Etudiant> getEtudiantByDepartement(Integer idDepartement);
 }

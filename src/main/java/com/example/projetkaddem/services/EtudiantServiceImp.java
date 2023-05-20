@@ -97,4 +97,8 @@ public class EtudiantServiceImp implements IEtudiantService{
         etudiant.setEquipes(equipes);
         return etudiant;
     }
+
+    public List<Etudiant>getEtudiantByDepartement(Integer idDepartement){
+        return etudiantRepository.findByDepartementIdDepartement(idDepartement);
+    }
 }

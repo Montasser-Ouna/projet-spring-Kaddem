@@ -53,5 +53,10 @@ public class EtudiantController {
     public Etudiant addAndAssignEtudiantToContratAndEquipeandDep(@RequestBody Etudiant etudiant,@PathVariable("idContrat") Integer idContrat, @PathVariable("idEquipe") Integer idEquipe) {
         return iEtudiantService.addAndAssignEtudiantToContratAndEquipeandDep(etudiant, idContrat, idEquipe);
     }
+
+    @GetMapping("/getEtudiantByDepartement/{idDepartement}")
+    public List<Etudiant> getEtudiantByDepartement(Integer idDepartement) {
+        return iEtudiantService.getEtudiantByDepartement(idDepartement);
+    }
 }
 
