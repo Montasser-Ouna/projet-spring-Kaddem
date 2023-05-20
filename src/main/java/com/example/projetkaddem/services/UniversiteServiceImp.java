@@ -60,4 +60,8 @@ public class UniversiteServiceImp implements IUniversiteService {
     }
         universiteRepository.save(universite);
     }
+    @Override
+    public Universite addOrUpdateUniversite(Universite universite){
+        return universiteRepository.save(universite);
+    }
 }

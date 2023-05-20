@@ -14,4 +14,6 @@ public interface IUniversiteService {
    // void assignUniversiteToDepartement(Long idUniv, Long idDepartement);
 
     void assignUniversiteToDepartement(Integer idUniv, Integer idDepartement);
+
+    abstract Universite addOrUpdateUniversite(Universite universite);
 }
